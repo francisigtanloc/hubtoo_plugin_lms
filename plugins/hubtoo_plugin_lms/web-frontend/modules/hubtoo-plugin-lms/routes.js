@@ -6,4 +6,9 @@ export const routes = [
     path: '/starting',
     component: path.resolve(__dirname, 'pages/starting.vue'),
   },
+  {
+    name: 'niceadmin',
+    path: '/niceadmin',
+    component: path.resolve(__dirname, 'pages/niceadmin/index.vue'),
+  },
 ]
