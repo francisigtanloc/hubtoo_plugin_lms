@@ -11,4 +11,9 @@ export const routes = [
     path: '/niceadmin',
     component: path.resolve(__dirname, 'pages/niceadmin/index.vue'),
   },
+  {
+    name: 'niceadmin-test',
+    path: '/niceadmin/test',
+    component: path.resolve(__dirname, 'pages/niceadmin/test.vue'),
+  },
 ]

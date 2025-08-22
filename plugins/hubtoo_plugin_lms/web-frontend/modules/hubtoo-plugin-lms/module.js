@@ -7,7 +7,8 @@ export default function () {
     __dirname,
     './'
   )
-  this.addLayout(path.resolve(__dirname, 'layouts/niceadmin-new.vue'), 'niceadmin-new')
+  // this.addLayout(path.resolve(__dirname, 'layouts/niceadmin-new.vue'), 'niceadmin-new')
+  this.addLayout(path.resolve(__dirname, 'layouts/test-layout.vue'), 'test-layout')
 
   this.extendRoutes((configRoutes) => {
     configRoutes.push(...routes)
