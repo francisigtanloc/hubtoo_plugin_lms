@@ -303,7 +303,7 @@ export default {
     async fetchQuiz() {
       try {
         // Fetch quiz for this course
-        const quizResponse = await axios.get(`http://localhost/api/teople1/quizzes/?course_id=${this.courseId}`);
+        const quizResponse = await axios.get(`http://localhost/api/hubtoo_plugin_lms/quizzes/?course_id=${this.courseId}`);
 
         if (quizResponse.data.status === 'success' && quizResponse.data.quizzes.length > 0) {
           const quizData = quizResponse.data.quizzes[0];
@@ -319,7 +319,7 @@ export default {
           // Fetch questions for this quiz
           const questionIds = quizData.Questions.map(q => q.id);
           if (questionIds.length > 0) {
-            const questionsResponse = await axios.get('http://localhost/api/teople1/questions/', {
+            const questionsResponse = await axios.get('http://localhost/api/hubtoo_plugin_lms/questions/', {
               params: {
                 id: `in(${questionIds.join(',')})`
               }
@@ -499,7 +499,7 @@ export default {
 
       // (optional) save attempt in backend
       try {
-        await axios.post("http://localhost/api/teople1/quizzes/", {
+        await axios.post("http://localhost/api/hubtoo_plugin_lms/quizzes/", {
           quiz: this.quiz.id,
           course: this.courseId,
           score: this.score,

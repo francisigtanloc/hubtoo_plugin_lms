@@ -260,7 +260,7 @@ export default {
         const courseId = this.$route.params.id;
 
         // Fetch course
-        const courseRes = await axios.get(`http://localhost/api/teople1/courses/${courseId}/`);
+        const courseRes = await axios.get(`http://localhost/api/hubtoo_plugin_lms/courses/${courseId}/`);
 
         // Always assign correctly
         if (courseRes.data.course) {
@@ -275,7 +275,7 @@ export default {
         }
 
         // Fetch lessons
-        const lessonRes = await axios.get(`http://localhost/api/teople1/lessons/`);
+        const lessonRes = await axios.get(`http://localhost/api/hubtoo_plugin_lms/lessons/`);
         this.lessons = lessonRes.data.lessons || lessonRes.data || [];
       } catch (err) {
         console.error("Error loading course and lessons:", err);
@@ -287,7 +287,7 @@ export default {
     async fetchProgressData() {
       try {
         this.loading.progress = true;
-        const res = await axios.get("http://localhost/api/teople1/progress/", {
+        const res = await axios.get("http://localhost/api/hubtoo_plugin_lms/progress/", {
           params: {
             user_id: this.currentUser.id,
             course_id: this.course.id
@@ -309,7 +309,7 @@ export default {
 
     async checkForQuiz() {
       try {
-        const response = await axios.get(`http://localhost/api/teople1/quizzes/?course_id=${this.course.id}`);
+        const response = await axios.get(`http://localhost/api/hubtoo_plugin_lms/quizzes/?course_id=${this.course.id}`);
         this.hasQuiz = response.data.count > 0 &&
                       response.data.quizzes.some(q => q.is_active && q.Questions.length > 0);
       } catch (error) {
@@ -379,7 +379,7 @@ export default {
         };
 
         const res = await axios.post(
-          "http://localhost/api/teople1/progress/",
+          "http://localhost/api/hubtoo_plugin_lms/progress/",
           payload
         );
 

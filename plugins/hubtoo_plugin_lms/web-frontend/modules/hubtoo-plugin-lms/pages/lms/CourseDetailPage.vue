@@ -278,7 +278,7 @@ export default {
   methods: {
     async fetchCourse() {
       try {
-        const response = await axios.get(`http://localhost/api/teople1/courses/${this.id}/`);
+        const response = await axios.get(`http://localhost/api/hubtoo_plugin_lms/courses/${this.id}/`);
         const courseData = response.data.course || response.data;
 
         this.course = {
@@ -307,7 +307,7 @@ export default {
     async checkQuizStatus() {
       try {
         // Check if course has a quiz
-        const quizRes = await axios.get(`http://localhost/api/teople1/quizzes/?course_id=${this.id}`);
+        const quizRes = await axios.get(`http://localhost/api/hubtoo_plugin_lms/quizzes/?course_id=${this.id}`);
         this.hasQuiz = quizRes.data.count > 0 && quizRes.data.quizzes.some(q => q.is_active);
 
         if (this.hasQuiz && this.enrolled) {
@@ -315,7 +315,7 @@ export default {
           const quizId = quiz.id;
 
           // Check if user has attempted the quiz
-          const attemptRes = await axios.get('http://localhost/api/teople1/quiz_attempts/', {
+          const attemptRes = await axios.get('http://localhost/api/hubtoo_plugin_lms/quiz_attempts/', {
             params: {
               user_id: this.currentUser.id,
               quiz_id: quizId,
@@ -357,7 +357,7 @@ export default {
       if (!this.course || !this.currentUser) return;
 
       try {
-        const response = await axios.get('http://localhost/api/teople1/enrollments/', {
+        const response = await axios.get('http://localhost/api/hubtoo_plugin_lms/enrollments/', {
           params: {
             user_id: this.currentUser.id,
             course_id: this.course.id
@@ -395,7 +395,7 @@ export default {
       if (!this.course || !this.currentUser || !this.enrolled) return;
 
       try {
-        const res = await axios.get('http://localhost/api/teople1/progress/', {
+        const res = await axios.get('http://localhost/api/hubtoo_plugin_lms/progress/', {
           params: {
             user_id: this.currentUser.id,
             course_id: this.course.id
@@ -445,7 +445,7 @@ export default {
     async updateEnrollmentProgress(progress) {
       try {
         await axios.patch(
-          `http://localhost/api/teople1/enrollments/${this.enrollmentId}/`,
+          `http://localhost/api/hubtoo_plugin_lms/enrollments/${this.enrollmentId}/`,
           {
             progress_percentage: progress,
             updated_on: new Date().toISOString()
@@ -482,7 +482,7 @@ export default {
         };
 
         const response = await axios.post(
-          'http://localhost/api/teople1/enrollments/',
+          'http://localhost/api/hubtoo_plugin_lms/enrollments/',
           payload
         );
 
@@ -536,7 +536,7 @@ export default {
     async createInitialProgressRecords() {
       try {
         // Fetch course lessons
-        const lessonsRes = await axios.get(`http://localhost/api/teople1/lessons/?course_id=${this.course.id}`);
+        const lessonsRes = await axios.get(`http://localhost/api/hubtoo_plugin_lms/lessons/?course_id=${this.course.id}`);
 
         if (lessonsRes.data.status === 'success' && lessonsRes.data.lessons.length > 0) {
           // Create progress record for each lesson
@@ -550,7 +550,7 @@ export default {
               notes: ""
             };
 
-            await axios.post('http://localhost/api/teople1/progress/', progressPayload);
+            await axios.post('http://localhost/api/hubtoo_plugin_lms/progress/', progressPayload);
           }
         }
       } catch (error) {

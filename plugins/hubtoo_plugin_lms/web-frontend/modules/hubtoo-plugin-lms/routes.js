@@ -24,21 +24,27 @@ export const routes = [
   {
     name: 'course-quiz',
     path: '/lms/courses/:id/quiz',
-    component: path.resolve(__dirname, 'pages/lms/course-quiz.vue'),
+    component: path.resolve(__dirname, 'pages/lms/CourseQuiz.vue'),
   },
   {
     name: 'course-detail',
     path: '/lms/courses/:id',
-    component: path.resolve(__dirname, 'pages/lms/course-detail.vue'),
+    component: path.resolve(__dirname, 'pages/lms/CourseDetailPage.vue'),
   },
   {
     name: 'course-learn',
     path: '/lms/courses/:id/learn',
-    component: path.resolve(__dirname, 'pages/lms/course-learn.vue'),
+    component: path.resolve(__dirname, 'pages/lms/CourseLearnPage.vue'),
   },
   {
     name: 'login',
     path: '/auth/login',
     component: path.resolve(__dirname, 'pages/authentication/login.vue'),
+  },
+  {
+    name: 'courselogin',
+    path: '/course/courselogin',
+    component: path.resolve(__dirname, 'pages/lms/courselogin.vue'),
+    props: true,
   },
 ]
