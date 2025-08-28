@@ -262,8 +262,8 @@
       async fetchCourses() {
         try {
           const [courseRes, progressRes] = await Promise.all([
-            axios.get('http://localhost/api/teople1/courses/'),
-            axios.get('http://localhost/api/teople1/progress/')
+            axios.get('http://localhost/api/hubtoo_plugin_lms/courses/'),
+            axios.get('http://localhost/api/hubtoo_plugin_lms/progress/')
           ]);
   
           const progressList = progressRes.data.status === 'success' ? progressRes.data.progress : [];
@@ -330,7 +330,7 @@
   
       async fetchQuizzes() {
         try {
-          const response = await axios.get('http://localhost/api/teople1/quizzes/');
+          const response = await axios.get('http://localhost/api/hubtoo_plugin_lms/quizzes/');
   
           if (response.data?.status === 'success') {
             // Filter only active quizzes with questions
