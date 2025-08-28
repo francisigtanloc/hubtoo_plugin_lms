@@ -16,4 +16,29 @@ export const routes = [
     path: '/niceadmin/test',
     component: path.resolve(__dirname, 'pages/niceadmin/test.vue'),
   },
+  {
+    name: 'courses',
+    path: '/lms/courses',
+    component: path.resolve(__dirname, 'pages/lms/courses.vue'),
+  },
+  {
+    name: 'course-quiz',
+    path: '/lms/courses/:id/quiz',
+    component: path.resolve(__dirname, 'pages/lms/course-quiz.vue'),
+  },
+  {
+    name: 'course-detail',
+    path: '/lms/courses/:id',
+    component: path.resolve(__dirname, 'pages/lms/course-detail.vue'),
+  },
+  {
+    name: 'course-learn',
+    path: '/lms/courses/:id/learn',
+    component: path.resolve(__dirname, 'pages/lms/course-learn.vue'),
+  },
+  {
+    name: 'login',
+    path: '/auth/login',
+    component: path.resolve(__dirname, 'pages/authentication/login.vue'),
+  },
 ]
