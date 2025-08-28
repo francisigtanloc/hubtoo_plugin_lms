@@ -58,7 +58,7 @@
               <i class="fas fa-share-alt"></i> Share
             </button>
             <button class="wishlist-button">
-              <i class="far fa-bookmark"></i> Save
+              <i class="far fa-bookmark"></i> Savee
             </button>
           </div>
         </div>
