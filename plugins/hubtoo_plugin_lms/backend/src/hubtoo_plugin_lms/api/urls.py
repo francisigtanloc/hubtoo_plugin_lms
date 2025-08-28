@@ -14,7 +14,7 @@ from .views import (
     QuestionsView,
 )
 
-app_name = "teople1.api"
+app_name = "hubtoo_plugin_lms"
 
 urlpatterns = [
     # Starting endpoint
